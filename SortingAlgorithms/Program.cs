@@ -14,14 +14,15 @@ namespace SortingAlgorithms
 
         static void Main(string[] args)
         {
-            var unsortedArray = GenerateSet(100000).ToArray();
+            var unsortedArray = GenerateSet(10000).ToArray();
 
             _stopwatch.Start();
-            var sortedArray = BubbleSort.SortAscending(unsortedArray);
+            //var sortedArray = BubbleSort.SortAscending(unsortedArray);
+            var sortedArray = InsertionSort.SortAscending(unsortedArray);
             _stopwatch.Stop();
 
             //PrintArray("unsorted", unsortedArray);
-            //PrintArray("sorted", sortedArray);
+            PrintArray("sorted", sortedArray);
 
             Console.WriteLine($"elapsed time: {_stopwatch.ElapsedMilliseconds/1000d} seconds");
 
