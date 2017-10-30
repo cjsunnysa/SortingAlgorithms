@@ -14,17 +14,24 @@ namespace SortingAlgorithms
 
         static void Main(string[] args)
         {
-            var unsortedArray = GenerateSet(10000).ToArray();
+            var sorters = new NumberSorter[] 
+            {
+                new BubbleSort(),
+                new InsertionSort()
+            };
 
-            _stopwatch.Start();
-            //var sortedArray = BubbleSort.SortAscending(unsortedArray);
-            var sortedArray = InsertionSort.SortAscending(unsortedArray);
-            _stopwatch.Stop();
+            foreach (var sorter in sorters)
+            {
+                var unsortedArray = GenerateSet(10000).ToArray();
 
-            //PrintArray("unsorted", unsortedArray);
-            PrintArray("sorted", sortedArray);
+                _stopwatch.Restart();
 
-            Console.WriteLine($"elapsed time: {_stopwatch.ElapsedMilliseconds/1000d} seconds");
+                var sortedArray = sorter.SortAscending(unsortedArray);
+
+                _stopwatch.Stop();
+
+                Console.WriteLine($"{sorter.GetType().Name} - elapsed time: {_stopwatch.ElapsedMilliseconds / 1000d} seconds");
+            }
 
             Console.ReadKey();
         }

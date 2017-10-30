@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SortingAlgorithms
 {
-    public static class BubbleSort
+    internal class BubbleSort : NumberSorter
     {
-        public static int[] SortAscending(int[] array)
+        public override int[] SortAscending(int[] array)
         {
             for (int i = array.Length - 1; i > 0; --i)
                 for (int j = 0; j < i; ++j)

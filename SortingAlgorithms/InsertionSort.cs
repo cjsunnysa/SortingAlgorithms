@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SortingAlgorithms
 {
-    public static class InsertionSort
+    internal class InsertionSort : NumberSorter
     {
-        public static int[] SortAscending(int[] array)
+        public override int[] SortAscending(int[] array)
         {
             var result = new int[array.Length];
 
